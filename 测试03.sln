@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Test03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Console.WriteLine("请输入第一个整数：");
+                string x = Console.ReadLine();
+                Console.WriteLine("请输入第二个整数：");
+                string y = Console.ReadLine();
+                if (x == y)
+                {
+                    Console.WriteLine("您输入的两个数相同");
+                }
+                else
+                {
+                    Console.WriteLine("您输入的两个数不同");
+                }
+                Console.WriteLine("请选择运算符号（+,-,*,/）：");
+                string strOperate = Console.ReadLine();
+                string strResult = "";
+                strResult = Convert.ToString(Calculator.GetResult(Convert.ToDouble(x), Convert.ToDouble(y), strOperate));
+                Console.WriteLine("结果是：" + strResult);
+                Console.ReadLine();
+            }
+            catch
+            {
+                Console.WriteLine("您的输入有误：");
+            }
+        }
+    }
+    public class Calculator 
+    {
+        public static double GetResult(double x,double y,string Operate) 
+        {
+            double result = 0d;
+            switch (Operate)
+            {
+                case "+":
+                    result = x + y;
+                    break;
+                case "-":
+                    result = x - y;
+                    break;
+                case "*":
+                    result = x * y;
+                    break;
+                case "/":
+                    result = x / y;
+                    break;
+            }
+            return result;
+        }
+    }
+}
+
